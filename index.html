@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta name="theme-color" content="#0d1711">
+  <title>Wild Africa</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="game"></div>
+
+<div id="loading"><div class="loader"></div><div>Loading Wild Africa…</div></div>
+
+<main id="menu" class="screen">
+  <div class="menu-card">
+    <div class="eyebrow">AFRICAN WILDERNESS SURVIVAL</div>
+    <h1>WILD<br><span>AFRICA</span></h1>
+    <p>Explore. Survive. Escape the wild.</p>
+    <div class="menu-buttons">
+      <button id="playBtn">PLAY</button>
+      <button id="continueBtn">CONTINUE</button>
+      <button id="newBtn" class="secondary">NEW GAME</button>
+      <button id="settingsBtn" class="secondary">SETTINGS</button>
+    </div>
+    <small>Mobile • Chrome • Three.js</small>
+  </div>
+</main>
+
+<section id="hud" class="hidden">
+  <div class="topbar">
+    <div class="stats">
+      <div><b>HEALTH</b><span class="bar"><i id="healthBar"></i></span><em id="healthText">100</em></div>
+      <div><b>STAMINA</b><span class="bar"><i id="staminaBar"></i></span></div>
+      <div><b>WATER</b><span class="bar"><i id="waterBar"></i></span></div>
+      <div><b>FOOD</b><span class="bar"><i id="hungerBar"></i></span></div>
+    </div>
+    <div class="objective">
+      <b id="missionTitle">Reach the Ranger Station</b>
+      <span id="missionDistance">0 m</span>
+    </div>
+    <button id="pauseBtn" class="icon-btn">Ⅱ</button>
+  </div>
+
+  <div class="info-row">
+    <span id="dangerBadge">SAFE</span>
+    <span>COINS <b id="coins">0</b></span>
+    <span>XP <b id="xp">0</b></span>
+    <span>DIST <b id="distance">0</b>m</span>
+    <span id="timeText">08:00</span>
+  </div>
+
+  <canvas id="map" width="150" height="150"></canvas>
+  <div id="prompt"></div>
+  <div id="toast"></div>
+  <div id="crosshair">+</div>
+
+  <div id="joystick"><div id="stick"></div></div>
+  <div class="actions">
+    <button id="crouchBtn">CROUCH</button>
+    <button id="jumpBtn">JUMP</button>
+    <button id="sprintBtn">SPRINT</button>
+    <button id="interactBtn">USE</button>
+    <button id="cameraBtn">CAMERA: 3RD</button>
+  </div>
+</section>
+
+<section id="pause" class="overlay hidden">
+  <div class="panel">
+    <h2>PAUSED</h2>
+    <button id="resumeBtn">RESUME</button>
+    <button id="inventoryBtn" class="secondary">INVENTORY</button>
+    <button id="missionBtn" class="secondary">MISSION</button>
+    <button id="pauseSettingsBtn" class="secondary">SETTINGS</button>
+    <button id="checkpointBtn" class="secondary">RESTART CHECKPOINT</button>
+    <button id="mainMenuBtn" class="secondary">MAIN MENU</button>
+  </div>
+</section>
+
+<section id="inventory" class="overlay hidden">
+  <div class="panel">
+    <h2>INVENTORY</h2>
+    <div id="inventoryList"></div>
+    <button id="closeInventory">CLOSE</button>
+  </div>
+</section>
+
+<section id="missionPanel" class="overlay hidden">
+  <div class="panel">
+    <h2>MISSION</h2>
+    <p id="missionDescription"></p>
+    <p>Reward: <b id="missionReward"></b></p>
+    <button id="closeMission">CLOSE</button>
+  </div>
+</section>
+
+<section id="settings" class="overlay hidden">
+  <div class="panel">
+    <h2>SETTINGS</h2>
+    <label>Graphics
+      <select id="graphics">
+        <option value="low">Low</option><option value="medium" selected>Medium</option><option value="high">High</option>
+      </select>
+    </label>
+    <label>Sound <input id="soundToggle" type="checkbox" checked></label>
+    <label>Vibration <input id="vibrationToggle" type="checkbox" checked></label>
+    <button id="closeSettings">CLOSE</button>
+  </div>
+</section>
+
+<section id="complete" class="overlay hidden">
+  <div class="panel">
+    <div class="success">MISSION COMPLETE</div>
+    <h2 id="completeTitle">Well done.</h2>
+    <p id="completeReward"></p>
+    <button id="continueMission">CONTINUE</button>
+  </div>
+</section>
+
+<section id="gameover" class="overlay hidden">
+  <div class="panel">
+    <div class="danger">YOU DIED</div>
+    <h2>The wilderness won.</h2>
+    <p>Survive longer, stay alert and avoid dangerous animals.</p>
+    <button id="restartBtn">RESTART CHECKPOINT</button>
+    <button id="gameOverMenu" class="secondary">MAIN MENU</button>
+  </div>
+</section>
+
+<script type="module" src="game.js"></script>
+</body>
+</html>
